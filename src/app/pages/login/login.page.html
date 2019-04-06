@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ingresar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-align-items-center">
+	
+
+	<ion-card>
+		<ion-card-content >
+			<ion-item>		
+			  <ion-label position="floating"><ion-icon item-start name="person"></ion-icon>	Email</ion-label>
+			  <ion-input color="dark" type="text" [(ngModel)]="indexUser.email"></ion-input>
+			</ion-item>
+			<ion-item>				
+			  <ion-label position="floating"><ion-icon item-start name="eye"></ion-icon>Contraseña</ion-label>
+			  <ion-input color="dark" type="password" [(ngModel)]="indexUser.password"></ion-input>
+			</ion-item>	
+
+			<ion-button class="ion-margin-top" fill="solid" (click)="createLogin()" color="primary" expand="block">Ingresar</ion-button>
+
+		</ion-card-content>
+
+
+	</ion-card>
+
+</ion-content>
+

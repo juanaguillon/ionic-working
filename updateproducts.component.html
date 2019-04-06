@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ingresar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-list>
+    <ion-item *ngFor="let prod of products">
+      <ion-label>
+        <h3>{{prod.name}}</h3>
+        <h5>${{prod.price | number}}</h5>
+        <span class="text-muted">{{prod.description}}</span>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
