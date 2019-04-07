@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/shared/product';
 import { ProductService } from 'src/app/services/product.service';
+import {  ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-newProduct',
@@ -11,17 +12,26 @@ export class NewProductComponent implements OnInit {
   currentProduct: Product = {
     id: null,
     name: ""
-
   };
-  imageProduct = null;
 
-  constructor(private productService: ProductService) { }
+  constructor(
+    private router:ActivatedRoute,
+    private productService: ProductService
+    ) {
+
+    if ( this.router.snapshot.params["id"] != "new" ){
+      this.currentProduct.id = this.router.snapshot.params["id"];
+      let cproduct = this.productService.getProductById(this.currentProduct.id);     
+
+      cproduct.subscribe( doc => {
+        this.currentProduct = doc;
+      })
+    }
+    
+  }
   ngOnInit() {
   }
 
-  uploadImage($event) {
-    this.imageProduct = $event.target.files[0];
-  }
 
   uploadProduct() {
     this.productService.createProduct(this.currentProduct);

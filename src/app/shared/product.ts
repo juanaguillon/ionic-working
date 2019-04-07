@@ -3,4 +3,5 @@ export interface Product {
   name:String,
   description?:String,
   price?:Number,
+  image?:Number
 }
