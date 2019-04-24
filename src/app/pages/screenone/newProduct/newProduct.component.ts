@@ -24,6 +24,7 @@ export class NewProductComponent implements OnInit {
       let cproduct = this.productService.getProductById(this.currentProduct.id);
 
       cproduct.subscribe(doc => {
+        console.log(doc);
         // this.currentProduct = doc;
       })
     }
