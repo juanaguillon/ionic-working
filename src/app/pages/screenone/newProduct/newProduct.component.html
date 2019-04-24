@@ -1,33 +1,45 @@
-<form>
-  <div class="form-group">
-    <label for="name_product">Nombre de Producto</label>
-    <input type="text" name="name_product" class="form-control" id="name_product" >
-  </div>
-  <div class="form-group">
-    <label for="desc_product">Descripción de producto</label>
-    <input type="text" name="desc_product" class="form-control" id="desc_product"
-      >
-  </div>
-  <div class="form-group">
-    <label for="price_product">Precio de producto</label>
-    <input type="number" name="price_product" class="form-control" id="price_product"
-      [(ngModel)]="currentProduct.price">
-  </div>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" defaultHref="/screenone/updateproducts" routerDirection="back">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Actualizar Productos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
-  <div class="form-group">
-    <button type="button" (click)="uploadProduct()" class="btn btn-primary">Enviar</button>
-  </div>
+<ion-content>
+  <form>
+    <div class="form-group">
+      <label for="name_product">Nombre de Producto</label>
+      <input type="text" name="name_product" class="form-control" id="name_product">
+    </div>
+    <div class="form-group">
+      <label for="desc_product">Descripción de producto</label>
+      <input type="text" name="desc_product" class="form-control" id="desc_product">
+    </div>
+    <div class="form-group">
+      <label for="price_product">Precio de producto</label>
+      <input type="number" name="price_product" class="form-control" id="price_product"
+        [(ngModel)]="currentProduct.price">
+    </div>
+
+    <div class="form-group">
+      <button type="button" (click)="uploadProduct()" class="btn btn-primary">Enviar</button>
+    </div>
 
 
-  <ion-item>
-    <ion-label>Nombre</ion-label>
-    <ion-input type="text" [(ngModel)]="currentProduct.name"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Descripción</ion-label>
-    <ion-textarea [(ngModel)]="currentProduct.description">
-    </ion-textarea>
-  </ion-item>
-  
-  
-</form>
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="currentProduct.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Descripción</ion-label>
+      <ion-textarea [(ngModel)]="currentProduct.description">
+      </ion-textarea>
+    </ion-item>
+
+
+  </form>
+</ion-content>

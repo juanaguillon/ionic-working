@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/shared/product';
 import { ProductService } from 'src/app/services/product.service';
-import {  ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-newProduct',
@@ -15,19 +15,19 @@ export class NewProductComponent implements OnInit {
   };
 
   constructor(
-    private router:ActivatedRoute,
+    private router: ActivatedRoute,
     private productService: ProductService
-    ) {
+  ) {
 
-    if ( this.router.snapshot.params["id"] != "new" ){
+    if (this.router.snapshot.params["id"] != "new") {
       this.currentProduct.id = this.router.snapshot.params["id"];
-      let cproduct = this.productService.getProductById(this.currentProduct.id);     
+      let cproduct = this.productService.getProductById(this.currentProduct.id);
 
-      cproduct.subscribe( doc => {
-        this.currentProduct = doc;
+      cproduct.subscribe(doc => {
+        // this.currentProduct = doc;
       })
     }
-    
+
   }
   ngOnInit() {
   }

@@ -1,9 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>screenone</ion-title>
+    <ion-buttons slot="start" defaultHref="/home" routerDirection="back">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pantalla Horizontal</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-item routerLink="/screenone/newproduct" routerDirection="forward">
+      <ion-label>Crear Producto</ion-label>
+    </ion-item>
+    <ion-item routerLink="/screenone/updateproducts" routerDirection="forward">
+      <ion-label>Actualizar Producto</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

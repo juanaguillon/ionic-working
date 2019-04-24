@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start" defaultHref="/screenone/" routerDirection="back">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>
       Actualizar Productos
     </ion-title>
@@ -8,8 +11,9 @@
 
 <ion-content>
   <ion-list>
-    
-    <ion-item *ngFor="let prod of products" routerDirection="forward" [routerLink]="[ '/screenone/newproduct/' ,prod.id]">        
+
+    <ion-item *ngFor="let prod of products" routerDirection="forward"
+      [routerLink]="[ '/screenone/newproduct/' ,prod.id]">
 
       <ion-label>
         <ion-text color="success">
@@ -22,9 +26,9 @@
       <ion-buttons slot="end">
         <ion-button>
           <ion-icon name="arrow-forward"></ion-icon>
-        </ion-button >
+        </ion-button>
       </ion-buttons>
-      
+
     </ion-item>
 
 
