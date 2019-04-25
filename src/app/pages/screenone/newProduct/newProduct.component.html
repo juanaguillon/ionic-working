@@ -3,43 +3,52 @@
     <ion-buttons slot="start" defaultHref="/screenone/updateproducts" routerDirection="back">
       <ion-back-button></ion-back-button>
     </ion-buttons>
+    <ion-title *ngIf="!validatenew; else elseTitle">
+      Actualizar Producto
+    </ion-title>
+    <ng-template #elseTitle>
+      <ion-title>
+        Crear Producto
+      </ion-title>
+    </ng-template>
     <ion-title>
-      Actualizar Productos
+
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <form>
-    <div class="form-group">
-      <label for="name_product">Nombre de Producto</label>
-      <input type="text" name="name_product" class="form-control" id="name_product">
-    </div>
-    <div class="form-group">
-      <label for="desc_product">Descripción de producto</label>
-      <input type="text" name="desc_product" class="form-control" id="desc_product">
-    </div>
-    <div class="form-group">
-      <label for="price_product">Precio de producto</label>
-      <input type="number" name="price_product" class="form-control" id="price_product"
-        [(ngModel)]="currentProduct.price">
-    </div>
-
-    <div class="form-group">
-      <button type="button" (click)="uploadProduct()" class="btn btn-primary">Enviar</button>
-    </div>
-
-
-    <ion-item>
-      <ion-label>Nombre</ion-label>
-      <ion-input type="text" [(ngModel)]="currentProduct.name"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Descripción</ion-label>
-      <ion-textarea [(ngModel)]="currentProduct.description">
-      </ion-textarea>
-    </ion-item>
-
-
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="12" size-lg="12" size-xs="12">
+          <ion-item-group>
+            <ion-item>
+              <ion-label position="stacked">Nombre de Producto</ion-label>
+              <ion-input type="text" [(ngModel)]="currentProduct.name" name="name" id="name">
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label for="description" position="stacked">Descripción de producto</ion-label>
+              <ion-textarea rows="4" [(ngModel)]="currentProduct.description" name="description" id="description">
+              </ion-textarea>
+            </ion-item>
+            <ion-item>
+              <ion-label for="price" position="stacked">Precio de producto</ion-label>
+              <ion-input type="number" name="price" id="price" [(ngModel)]="currentProduct.price">
+              </ion-input>
+            </ion-item>
+          </ion-item-group>
+          <div padding *ngIf="!validatenew; else elseBlock">
+            <ion-button expand="block" (click)="uploadProduct(currentProduct.id)">Actualizar</ion-button>
+          </div>
+          <ng-template #elseBlock>
+            <div padding>
+              <ion-button expand="block" (click)="newProduct()">Crear</ion-button>
+            </div>
+          </ng-template>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </form>
 </ion-content>

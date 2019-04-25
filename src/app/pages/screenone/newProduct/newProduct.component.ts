@@ -9,33 +9,29 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./newProduct.component.css']
 })
 export class NewProductComponent implements OnInit {
-  currentProduct: Product = {
-    id: null,
-    name: ""
-  };
-
+  currentProduct: any = {};
+  validatenew;
   constructor(
     private router: ActivatedRoute,
     private productService: ProductService
   ) {
-
     if (this.router.snapshot.params["id"] != "new") {
+      this.validatenew = false;
       this.currentProduct.id = this.router.snapshot.params["id"];
       let cproduct = this.productService.getProductById(this.currentProduct.id);
-
       cproduct.subscribe(doc => {
-        console.log(doc);
-        // this.currentProduct = doc;
+        this.currentProduct = doc;
       })
+    } else {
+      this.validatenew = true;
     }
-
   }
   ngOnInit() {
   }
-
-
-  uploadProduct() {
+  uploadProduct(idup) {
+    this.productService.updateProductById(idup, this.currentProduct);
+  }
+  newProduct() {
     this.productService.createProduct(this.currentProduct);
   }
-
 }
