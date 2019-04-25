@@ -1,9 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>screentwo</ion-title>
+    <ion-buttons slot="start" defaultHref="/home" routerDirection="back">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pantalla Vertical</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-
+  <ion-list>
+    <ion-item routerLink="/screenone/newproduct/new" routerDirection="forward">
+      <ion-label>Presets Actuales</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
